@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>RollDice_Ramc.com</title>
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+		<!-- <script src="script.js" type="text/javascript" charset="utf-8" async defer></script> -->
+		<style>
+			.navi{
+				position: absolute;
+				z-index: 2;
+				width: 100%;
+			}
+			
+			img{
+				width: 150px;
+				height: 150px;
+			}
+			#d1{
+				transform: translateY(50px);
+			}
+			#dicek{
+				transform: translateY(50px);
+				
+				
+			}
+			#heading{
+				padding-top: 50px;
+			}
+			
+			.dicebg{
+				background-image: url('images/dicebg.png');
+				width: 100%;
+				height: 100vh;
+				font-family: 'Lobster', cursive;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="font-family: 'Oswald', sans-serif;">
+			
+			<a class="navbar-brand" href="#">RAMC Tech</a>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+		
+			<div class="collapse navbar-collapse " id="collapsibleNavbar" >
+				<ul class="navbar-nav ml-auto text-center">
+					<li class="nav-item" style="margin-right: 10px;margin-left: 10px;">
+						<a class="nav-link text-white" href="index.html">HOME <i class="fa fa-fw fa-home " style="font-size: 20px;"></i></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							GAMES<i class="fa fa-book " style="font-size: 20px;"></i>
+						</a>
+						<div class="dropdown-menu bg-light text-white">
+							<a class="dropdown-item" href="flames.html">FLAMES</a>
+							
+						</div>
+					</li>
+					<li class="nav-item" style="margin-right: 50px;margin-left: 10px;">
+						<a class="nav-link text-white" href="registration.php">CONTACT <i class="fa fa-commenting " style="font-size: 20px;"></i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="dicebg container-fluid">
+			<div class="dice text-center text-warning" id="d1">
+				
+				<h1 id="heading" >ROLL THE DICE!</h1>
+				<br>
+				<br>
+				<br><br><br>
+				<div class="row text-center">
+					<div class="col col-6">
+						<h2>PLAYER 1</h2>
+						<br>
+						<img src="images/1.png" id="c1" alt="">
+					</div>
+					<div class="col col-6">
+						<h2>PLAYER2</h2>
+						<br>
+						<img src="images/2.png" alt="" id="c2">
+					</div>
+					
+				</div>
+				<button class="btn btn-group-lg btn-warning" onclick="change()" id="dicek"> Click ME</button>
+				
+			</div>
+		</div>
+		<div class="container-fluid bg-dark text-white text-center " style="">
+			<small>© COPYRIGHT WILL BE APPLIED</small>
+			
+		</div>
+		<script>
+		function change() {
+			// body...
+			var rand=Math.ceil(Math.random()*6);
+			var x="images/"+rand+".png";
+			
+			document.getElementById('c1').src=x;
+		var rand2=Math.floor(Math.random()*6+1);
+		var y="images/"+rand2+".png";
+		document.getElementById('c2').src=y;
+		if (rand>rand2) {document.getElementById('heading').innerHTML="Player1 won :)";}
+		else if(rand<rand2){document.getElementById('heading').innerHTML="Player2 won :)"}
+		else{
+		document.getElementById('heading').innerHTML="DRAW!!!";
+		}
+		}
+		
+		
+		</script>
+	</body>
+</html>
